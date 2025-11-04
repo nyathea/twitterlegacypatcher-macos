@@ -1,2 +1,2 @@
 # twitterlegacypatcher-macos
-fixes log in to the mac catalyst twitter app
+fixes log in for the mac catalyst twitter app
