@@ -1,4 +1,4 @@
-// Ad blocker and timeline cleaner for Mac Catalyst Twitter app
+// Ad blocker
 // Hides ads, promoted content, and unwanted timeline items
 
 #import <Foundation/Foundation.h>
