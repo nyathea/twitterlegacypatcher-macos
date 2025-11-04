@@ -1,8 +1,3 @@
-//
-// meow meow /ᐠ˵- ᴗ -˵マ ᶻ 𝗓 𐰁
-//
-
-
 #import "TwitterLegacyPatcher.h"
 #import "TWCertificateBypass.h"
 #import "TWAdBlocker.h"
