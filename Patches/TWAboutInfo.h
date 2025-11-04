@@ -1,5 +1,5 @@
-// Extended About Settings info with patcher version
-// Adds TwitterX version info to Twitter's About Settings screen
+// Extended About Settings info
+// Adds version info to Twitter's About Settings screen
 
 #import <Foundation/Foundation.h>
 #import "TWFeature.h"
