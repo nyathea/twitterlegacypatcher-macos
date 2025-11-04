@@ -1,5 +1,5 @@
 // Version spoofing for Mac Catalyst Twitter app
-// Spoofs version for onboarding requests to prevent compatibility issues
+// Spoofs version for onboarding requests to fix sign in
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
