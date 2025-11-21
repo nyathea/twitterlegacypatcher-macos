@@ -1,2 +1,4 @@
-# twitterlegacypatcher-macos
-fixes log in for the mac catalyst twitter app
+# TwitterLegacyPatcher (MacOS Catalyst edition)
+
+## Installation 
+Coming soon..
