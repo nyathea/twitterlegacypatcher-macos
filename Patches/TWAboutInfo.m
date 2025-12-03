@@ -41,20 +41,17 @@ static NSString *_originalAppVersion = nil;
 + (void)loadFeature {
     NSLog(@"[TWAboutInfo] Loading about info feature...");
     
-    // Get patcher version from TwitterX framework bundle
     NSBundle *frameworkBundle = [NSBundle bundleForClass:[self class]];
     _patcherVersion = [frameworkBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     if (!_patcherVersion) {
-        _patcherVersion = @"Unknown";
+        _patcherVersion = @"1.0";
     }
     
-    // Get original app version
     _originalAppVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     
     NSLog(@"[TWAboutInfo] Patcher version: %@", _patcherVersion);
     NSLog(@"[TWAboutInfo] Original app version: %@", _originalAppVersion);
     
-    // Hook T1AboutSettingsViewController
     [TWRuntime exchangeInstanceMethod:@"setSections:" ofClass:@"T1AboutSettingsViewController"];
     [TWRuntime exchangeInstanceMethod:@"tableView:cellForRowAtIndexPath:" ofClass:@"T1AboutSettingsViewController"];
     
@@ -62,28 +59,23 @@ static NSString *_originalAppVersion = nil;
 }
 
 + (NSString *)patcherVersion {
-    return _patcherVersion ?: @"Unknown";
+    return _patcherVersion ?: @"1.0";
 }
 
 @end
 
 @implementation NSObject (TWAboutInfo)
 
-// T1AboutSettingsViewController hooks
 - (void)T1AboutSettingsViewController_setSections:(NSArray *)sections {
-    // Only modify sections if this is actually T1AboutSettingsViewController
     Class targetClass = [@"T1AboutSettingsViewController" twx_class];
     if (targetClass && [self isKindOfClass:targetClass] && _originalAppVersion && sections.count > 0) {
         NSMutableArray *modifiedSections = [NSMutableArray arrayWithArray:sections];
         
-        // Get the first section and add our custom item
         if (modifiedSections[0] && [modifiedSections[0] isKindOfClass:[NSArray class]]) {
             NSMutableArray *firstSection = [NSMutableArray arrayWithArray:modifiedSections[0]];
             
-            // Insert patcher version item at index 1
             [firstSection insertObject:@"PatcherVersion" atIndex:1];
             
-            // Replace the first section
             [modifiedSections replaceObjectAtIndex:0 withObject:[firstSection copy]];
         }
         
@@ -97,7 +89,6 @@ static NSString *_originalAppVersion = nil;
     Class targetClass = [@"T1AboutSettingsViewController" twx_class];
     if (targetClass && [self isKindOfClass:targetClass] && _originalAppVersion && indexPath.section == 0) {
         if (indexPath.row == 0) {
-            // Modify the existing version cell to show original version
             id cell = [self T1AboutSettingsViewController_tableView:tableView cellForRowAtIndexPath:indexPath];
             
             @try {
@@ -141,7 +132,7 @@ static NSString *_originalAppVersion = nil;
                     id __unsafe_unretained patcherCell;
                     [invocation getReturnValue:&patcherCell];
                     @try {
-                        NSInteger selectionStyle = 0; // UITableViewCellSelectionStyleNone
+                        NSInteger selectionStyle = 0;
                         [patcherCell setValue:@(selectionStyle) forKey:@"selectionStyle"];
                     } @catch (NSException *exception) {
                     }

@@ -32,8 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
     [TWRuntime exchangeInstanceMethod:@"isAffiliateBadgeEnabled" ofClass:@"TTACoreAnatomyFeatures"];
     [TWRuntime exchangeInstanceMethod:@"isVerificationV2AffiliateBadgingEnabled" ofClass:@"TTACoreAnatomyFeatures"];
     
-    [TWRuntime exchangeInstanceMethod:@"isUrtConversationTimelineEnabled" ofClass:@"T1GraphQLFeatures"];
-    
     // Hook for undo tweet
     [TWRuntime exchangeInstanceMethod:@"shouldShowShowUndoTweetSentToast" ofClass:@"TFNTwitterToastNudgeExperimentModel"];
     
@@ -143,14 +141,6 @@ NS_ASSUME_NONNULL_BEGIN
         return NO;
     }
     return [self TTACoreAnatomyFeatures_isVerificationV2AffiliateBadgingEnabled];
-}
-
-// T1GraphQLFeatures hook
-- (BOOL)T1GraphQLFeatures_isUrtConversationTimelineEnabled {
-    if ([self isKindOfClass:[@"T1GraphQLFeatures" twx_class]]) {
-        return NO;
-    }
-    return [self T1GraphQLFeatures_isUrtConversationTimelineEnabled];
 }
 
 // Undo tweet hook

@@ -1,0 +1,18 @@
+# Build output
+build/
+*.dylib
+
+# macOS
+.DS_Store
+*.xcuserstate
+
+# Xcode
+xcuserdata/
+*.xcworkspace
+
+# IDE
+.vscode/
+.idea/
+
+# Reference repos (not part of this project)
+ref/
