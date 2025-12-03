@@ -22,7 +22,7 @@ You may also find it from [Archive.org](https://archive.org/details/twitter_for_
 ## Requirements
 
 - macOS with SIP disabled
-- [Ammonia](https://github.com/CoreBedtime/ammonia) installed
+- Ammonia installed
 
 ## Installation
 
