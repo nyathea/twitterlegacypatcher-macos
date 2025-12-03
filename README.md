@@ -1,27 +1,28 @@
 # TwitterLegacyPatcher (macOS Catalyst edition)
 
-A plugin to restore functionality to the Mac Catalyst Twitter application, powered by [Ammonia](https://github.com/CoreBedtime/ammonia).
+A tweak to restore functionality to the Mac Catalyst Twitter application, powered by [Ammonia](https://github.com/CoreBedtime/ammonia).
+
+If you dont have the Twitter app installed you can reinstall it from your Purchase history on the app store.
+
+You may also find it from [Archive.org](https://archive.org/details/twitter_for_mac)
 
 ## Patches include
 - Bypass certificate pinning in the app
 - Spoofing app version to allow login
 - Ad blocking
-- Account enhancements
-- Media enhancements
+- QoL enhancements
 - Legacy verified badge restoration
 
 ## Known Issues
 
-- The Search page and Quote tweets don't work
-- You may not be able to view tweet replies (working on a fix)
+- The Search page, Quote tweets, and tweet replies don't work
 - Profile Banners don't show up at all
-- Some update prompts remain but they can be easily dismissed
+- Some update prompts remain (but they can be easily dismissed)
 
 ## Requirements
 
 - macOS with SIP disabled
 - [Ammonia](https://github.com/CoreBedtime/ammonia) installed
-- Xcode Command Line Tools (for building from source)
 
 ## Installation
 
@@ -43,7 +44,7 @@ A plugin to restore functionality to the Mac Catalyst Twitter application, power
 
 4. **Reboot**
 
-### Install TwitterLegacyPatcher
+### Building TwitterLegacyPatcher
 
 ```bash
 # Clone the repository
@@ -73,23 +74,3 @@ sudo rm /var/ammonia/core/tweaks/libTwitterLegacyPatcher.dylib
 sudo rm /var/ammonia/core/tweaks/libTwitterLegacyPatcher.dylib.whitelist
 sudo rm /var/ammonia/core/tweaks/libTwitterLegacyPatcher.dylib.blacklist
 ```
-
-## Building
-
-The Makefile builds a universal binary supporting:
-- `arm64` (Apple Silicon)
-- `arm64e` (Apple Silicon with pointer authentication)
-- `x86_64` (Intel, via Rosetta)
-
-```bash
-make        # Build the dylib (output in build/)
-make clean  # Remove build artifacts
-```
-
-## How It Works
-
-TwitterLegacyPatcher uses [Ammonia](https://github.com/CoreBedtime/ammonia) to inject into processes at runtime. The **whitelist** file tells Ammonia to only inject into the Twitter process. The tweak uses a `__attribute__((constructor))` entry point and waits for Twitter's classes to load before applying patches via method swizzling.
-
-## License
-
-See [LICENSE](LICENSE) for details.
