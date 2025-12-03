@@ -23,6 +23,7 @@ You may also find it from [Archive.org](https://archive.org/details/twitter_for_
 
 - macOS with SIP disabled
 - Ammonia installed
+- Xcode Command Line Tools (if building from source)
 
 ## Installation
 
@@ -35,7 +36,7 @@ You may also find it from [Archive.org](https://archive.org/details/twitter_for_
    - Reboot
 
 2. **Install Ammonia**
-   - Download and install the PKG from [Ammonia Releases](https://github.com/CoreBedtime/ammonia/releases/download/1.5/ammonia.pkg)
+   - Download and install the PKG from [Ammonia Releases](https://github.com/CoreBedtime/ammonia/releases/)
 
 3. **Enable arm64e ABI** (required for Apple Silicon)
    ```bash
