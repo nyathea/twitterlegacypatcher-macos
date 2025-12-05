@@ -49,8 +49,8 @@ You may also find it from [Archive.org](https://archive.org/details/twitter_for_
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/twitterlegacypatcher-osx.git
-cd twitterlegacypatcher-osx
+git clone https://github.com/nyathea/TwitterLegacyPatcher-MacOS.git
+cd TwitterLegacyPatcher-MacOS
 
 # Build and install
 make
